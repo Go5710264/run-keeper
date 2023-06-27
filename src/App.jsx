@@ -1,14 +1,11 @@
 import './App.css'
-import DataEntryForm from './components/DataEntryForm'
-import Statistics from './components/Statistics'
+import TrainingTable from './components/TrainingTable'
+
 
 function App() {
 
   return (
-    <>
-      <DataEntryForm />
-      <Statistics />
-    </>
+    <TrainingTable />
   )
 }
 
