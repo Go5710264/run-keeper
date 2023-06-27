@@ -4,3 +4,11 @@
   padding: 2rem;
   text-align: center;
 }
+
+.icon{
+  width: 17px;
+}
+
+.icon:hover{
+  cursor: pointer;
+}

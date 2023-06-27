@@ -24,6 +24,10 @@ const TrainingTable = () => {
         setWorkout((preTraining) => preTraining.filter((workout) => workout.id !== workoutId))
     }
 
+    const editingWorkout = (workoutId) => {
+        setWorkout((preTraining) => preTraining.)
+    }
+
     return (
         <>
             <DataEntryForm onAddWorkout={addWorkout} />
