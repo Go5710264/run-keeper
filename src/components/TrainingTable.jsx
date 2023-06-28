@@ -17,11 +17,20 @@ const TrainingTable = () => {
     ])
 
     const addWorkout = (workout) => {
-        setWorkout((preTraining) => [...preTraining, workout])
-        training.sort((a, b) => 
-            a.trainingInfo.date < b.trainingInfo.date ? 1 : -1
-        )
-        // console.log(arr)
+        const index = training.findIndex((wkt) => wkt.trainingInfo.date === workout.trainingInfo.date)
+        
+        console.log(index)
+
+        if(index !== -1) {
+            setWorkout((preTraining) => preTraining[index].trainingInfo.distance + workout.trainingInfo.distance)
+
+            // При добавлении тренировки с датой, которая уже есть в таблице, дистанция не суммируется. Происходит перезагрузка страницы
+
+        } else {
+            setWorkout((preTraining) => [...preTraining, workout].sort((a, b) => 
+                a.trainingInfo.date < b.trainingInfo.date ? 1 : -1
+            ))
+        }       
     }
 
     const deleteWorkout = (workoutId) => {
@@ -29,13 +38,12 @@ const TrainingTable = () => {
     }
 
     const editingWorkout = (e, id) => {
-        // e.preventDefault();
         console.log(e, id)
         
         return (
             <TrainingEditingWindow />
+            // Окно редактирования тренировки не отображается на странице, происходит перезагрузка 
         )
-        // return setWorkout(training.find(item => item.id === workoutId))
     }
 
     return (

@@ -24,11 +24,6 @@ const DataEntryForm = ({ onAddWorkout }) => {
 
         const timestamp = new Date(event.target.value).getTime();
 
-        // let invertedDate = event.target.value
-        // .split('-')
-        // .reverse()
-        // .join('.');
-
         setInfo({...trainingInfo, date: timestamp})
     }
 
