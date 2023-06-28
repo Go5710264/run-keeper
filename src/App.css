@@ -10,6 +10,7 @@
   justify-content: space-between;
 
   width: 400px;
+  height: 45px;
 }
 
 .form-data{
@@ -17,24 +18,50 @@
   flex-direction: column;
 }
 
-thead{
-
+.form-header{
+  text-align: left;
+  margin-bottom: 2px;
 }
 
-/* .table-heder{
+.input-distance{
+  padding: 0;
+  padding-left: 2px;
+}
+
+.form-button{
+  /* box-sizing: border-box;
+  height: 45px; */
+  margin-top: 6px;
+  padding: 5px 10px;
+  border: 1px solid black;
+}
+
+.table-header{
+  padding: 0;
+  padding-top: 10px;
   text-align: left;
-} */
+}
 
 table{
   width: 400px;
 }
 
+td{
+  padding: 0;
+  height: 20px;
+}
+
 .action{
-  width: 80px;
+  width: 75px;
+}
+
+.date{
+  width: 145px;
 }
 
 .icon{
   width: 17px;
+  margin: 4px 5px;
 }
 
 .icon:hover{

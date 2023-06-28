@@ -10,7 +10,7 @@ const TrainingTable = () => {
         {
             id: nanoid(),
             trainingInfo: {
-                date: "01.05.1995",
+                date: 1686000000000,
                 distance: '15'
             }
         }
@@ -18,6 +18,10 @@ const TrainingTable = () => {
 
     const addWorkout = (workout) => {
         setWorkout((preTraining) => [...preTraining, workout])
+        training.sort((a, b) => 
+            a.trainingInfo.date < b.trainingInfo.date ? 1 : -1
+        )
+        // console.log(arr)
     }
 
     const deleteWorkout = (workoutId) => {

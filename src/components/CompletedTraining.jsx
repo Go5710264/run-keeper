@@ -3,10 +3,19 @@ import close from '../assets/close.svg';
 import editing from '../assets/editing.svg'
 
 const CompletedTraining = ( {workout, onRemove, onEditing} ) => {
-    // console.log( onEditing(workout.id))
+
+    const returnDate = (value) => {
+        let invertedDate = new Date(value);
+        
+        return (
+            invertedDate.getDate() +'.' + 
+            (invertedDate.getMonth() + 1) + '.' + 
+            invertedDate.getFullYear()
+        )
+    }
     return (
         <tr>
-            <td>{workout.trainingInfo.date}</td>
+            <td>{returnDate(workout.trainingInfo.date)}</td>
             <td>{workout.trainingInfo.distance}</td>
             <td>
                 <img 

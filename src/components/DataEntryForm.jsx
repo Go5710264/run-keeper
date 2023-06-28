@@ -22,12 +22,14 @@ const DataEntryForm = ({ onAddWorkout }) => {
 
     const dateHandler = (event) => {
 
-        let invertedDate = event.target.value
-        .split('-')
-        .reverse()
-        .join('.');
+        const timestamp = new Date(event.target.value).getTime();
 
-        setInfo({...trainingInfo, date: invertedDate})
+        // let invertedDate = event.target.value
+        // .split('-')
+        // .reverse()
+        // .join('.');
+
+        setInfo({...trainingInfo, date: timestamp})
     }
 
     const distanceHandler = (event) => {
@@ -39,16 +41,16 @@ const DataEntryForm = ({ onAddWorkout }) => {
         <form className="form-submit" onSubmit={handlerSubmit}>
 
             <div className="form-data">
-                <label htmlFor="date">Дата</label>
+                <label htmlFor="date" className="form-header">Дата</label>
                 <input type="date" name="date" onChange={dateHandler}/>
             </div>
 
             <div className="form-data">
-                <label htmlFor="distance">Пройдено км.</label>
-                <input type="text" name="distance"onChange={distanceHandler}/>
+                <label htmlFor="distance" className="form-header">Пройдено км.</label>
+                <input className='input-distance' type="text" name="distance"onChange={distanceHandler}/>
             </div>
 
-            <button>OK</button>
+            <button className="form-button">OK</button>
 
         </form>
     )

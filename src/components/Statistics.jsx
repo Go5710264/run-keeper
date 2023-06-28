@@ -2,14 +2,13 @@ import PropTypes from 'prop-types';
 import CompletedTraining from './CompletedTraining';
 
 const Statistics = ( {training, onRemove, onEditing} ) => {
-    console.log(training)
     return (
         <table>
             <thead>
                 <tr>
-                    <th className='table-heder'>Дата</th>
-                    <th className='table-heder'>Пройдено км.</th>
-                    <th className='action table-heder'>Действия</th>
+                    <th className='table-header date'>Дата</th>
+                    <th className='table-header'>Пройдено км.</th>
+                    <th className='table-header action'>Действия</th>
                 </tr>
             </thead>
             <tbody>
