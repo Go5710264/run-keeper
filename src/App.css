@@ -5,6 +5,34 @@
   text-align: center;
 }
 
+.form-submit{
+  display: flex;
+  justify-content: space-between;
+
+  width: 400px;
+}
+
+.form-data{
+  display: flex;
+  flex-direction: column;
+}
+
+thead{
+
+}
+
+/* .table-heder{
+  text-align: left;
+} */
+
+table{
+  width: 400px;
+}
+
+.action{
+  width: 80px;
+}
+
 .icon{
   width: 17px;
 }

@@ -7,9 +7,9 @@ const Statistics = ( {training, onRemove, onEditing} ) => {
         <table>
             <thead>
                 <tr>
-                    <th>Дата</th>
-                    <th>Пройдено км.</th>
-                    <th>Действия</th>
+                    <th className='table-heder'>Дата</th>
+                    <th className='table-heder'>Пройдено км.</th>
+                    <th className='action table-heder'>Действия</th>
                 </tr>
             </thead>
             <tbody>

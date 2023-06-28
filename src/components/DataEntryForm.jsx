@@ -36,16 +36,20 @@ const DataEntryForm = ({ onAddWorkout }) => {
 
 
     return (
-        <form onSubmit={handlerSubmit}>
+        <form className="form-submit" onSubmit={handlerSubmit}>
 
-            <label htmlFor="date">Дата</label>
-            <input type="date" name="date" onChange={dateHandler}/>
+            <div className="form-data">
+                <label htmlFor="date">Дата</label>
+                <input type="date" name="date" onChange={dateHandler}/>
+            </div>
 
-
-            <label htmlFor="distance">Пройдено км.</label>
-            <input type="text" name="distance"onChange={distanceHandler}/>
+            <div className="form-data">
+                <label htmlFor="distance">Пройдено км.</label>
+                <input type="text" name="distance"onChange={distanceHandler}/>
+            </div>
 
             <button>OK</button>
+
         </form>
     )
 }
