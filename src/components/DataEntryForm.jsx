@@ -9,10 +9,12 @@ const DataEntryForm = ({ onAddWorkout }) => {
     const handlerSubmit = (event) => {
         event.preventDefault();
 
+        const {distance: dist} = trainingInfo;
+
         onAddWorkout({
             id: nanoid(),
             trainingInfo
-        });
+        }, dist);
 
         setInfo('');
 
@@ -28,7 +30,7 @@ const DataEntryForm = ({ onAddWorkout }) => {
     }
 
     const distanceHandler = (event) => {
-        setInfo({...trainingInfo, distance: event.target.value})
+        setInfo({...trainingInfo, distance: +event.target.value})
     }
 
 
@@ -42,7 +44,7 @@ const DataEntryForm = ({ onAddWorkout }) => {
 
             <div className="form-data">
                 <label htmlFor="distance" className="form-header">Пройдено км.</label>
-                <input className='input-distance' type="text" name="distance"onChange={distanceHandler}/>
+                <input className='input-distance' type="text" name="distance" onChange={distanceHandler}/>
             </div>
 
             <button className="form-button">OK</button>

@@ -11,26 +11,69 @@ const TrainingTable = () => {
             id: nanoid(),
             trainingInfo: {
                 date: 1686000000000,
-                distance: '15'
+                distance: 15
             }
         }
     ])
 
-    const addWorkout = (workout) => {
-        const index = training.findIndex((wkt) => wkt.trainingInfo.date === workout.trainingInfo.date)
+    const addWorkout = (workout, dist) => {
+        console.log(workout, dist)
+        console.log(training)
+
+        // let data = training.find((item) => item.trainingInfo.date === workout.trainingInfo.date);
+
+        // console.log(data)
+
+        // if(data) setWorkout((preTraining) => [...preTraining, workout])
         
-        console.log(index)
+        // {
+        //     // console.log(item.trainingInfo.date , workout.trainingInfo.date)
+        //     if(item.trainingInfo.date === workout.trainingInfo.date){
+        //         console.log('why&')
+        //         item.trainingInfo.distance + dist;
+        //         return false;
+        //     }
 
-        if(index !== -1) {
-            setWorkout((preTraining) => preTraining[index].trainingInfo.distance + workout.trainingInfo.distance)
+        //     console.log('hi')
 
-            // При добавлении тренировки с датой, которая уже есть в таблице, дистанция не суммируется. Происходит перезагрузка страницы
 
-        } else {
-            setWorkout((preTraining) => [...preTraining, workout].sort((a, b) => 
-                a.trainingInfo.date < b.trainingInfo.date ? 1 : -1
-            ))
-        }       
+
+        // })
+
+        setWorkout((preTraining) => {
+
+            let data = preTraining.find((item) => item.trainingInfo.date === workout.trainingInfo.date);
+
+            if(!data) {
+                [...preTraining, workout].sort((a, b) => 
+                    a.trainingInfo.date < b.trainingInfo.date ? 1 : -1
+                )
+                return false;
+            }
+
+            data.trainingInfo.date + dist;
+
+        })
+
+        // const index = training.findIndex((wkt) => wkt.trainingInfo.date === workout.trainingInfo.date)
+        
+        // console.log(index)
+
+        // if(index !== -1) {
+        //     // setWorkout((preTraining) => preTraining[index].trainingInfo.distance + workout.trainingInfo.distance)
+        //     setWorkout((preTraining) => {
+        //         console.log(typeof training)
+        //         console.log(typeof preTraining)
+        //     })
+        //     // preTraining[index].trainingInfo.distance + workout.trainingInfo.distance)
+
+        //     // При добавлении тренировки с датой, которая уже есть в таблице, дистанция не суммируется. Происходит перезагрузка страницы
+
+        // } else {
+        //     setWorkout((preTraining) => [...preTraining, workout].sort((a, b) => 
+        //         a.trainingInfo.date < b.trainingInfo.date ? 1 : -1
+        //     ))
+        // }       
     }
 
     const deleteWorkout = (workoutId) => {
