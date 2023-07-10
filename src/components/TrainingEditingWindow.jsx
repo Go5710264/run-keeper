@@ -1,16 +1,16 @@
-const TrainingEditingWindow = () => {
+const TrainingEditingWindow = ({ active, setActive }) => {
     return (
-        <form >
+        <div className={active ? "wrapper-modal-editing active" : "wrapper-modal-editing" } onClick={() => setActive(false)}>
+            <form className="modal-editing" onClick={e => e.stopPropagation()}>
 
-            <label htmlFor="date">Дата</label>
-            <input type="date" name="date" />
+                <label htmlFor="date">Дата <input type="date" name="date" /></label>
 
+                <label htmlFor="distance">Пройдено км. <input type="text" name="distance"/></label>
 
-            <label htmlFor="distance">Пройдено км.</label>
-            <input type="text" name="distance"/>
+                <button>OK</button>
 
-            <button>OK</button>
-        </form>
+            </form>
+        </div>
     )
 }
 

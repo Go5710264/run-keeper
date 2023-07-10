@@ -16,6 +16,8 @@ const TrainingTable = () => {
         }
     ])
 
+    const [modalActive, setModalActive] = useState(true);
+
     const addWorkout = (workout) => {
 
         setWorkout((preTraining) => {
@@ -40,11 +42,7 @@ const TrainingTable = () => {
 
     const editingWorkout = (e, id) => {
         console.log(e, id)
-        
-        return (
-            <TrainingEditingWindow />
-            // Окно редактирования тренировки не отображается на странице, происходит перезагрузка 
-        )
+        setModalActive(true)
     }
 
     return (
@@ -54,6 +52,12 @@ const TrainingTable = () => {
                 onRemove={deleteWorkout} 
                 onEditing={editingWorkout} 
                 training={training} 
+            />
+
+            <TrainingEditingWindow 
+                active={modalActive} 
+                setActive={setModalActive} 
+                // workoutId={}
             />
         </>
     )
