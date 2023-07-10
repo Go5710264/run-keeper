@@ -9,12 +9,10 @@ const DataEntryForm = ({ onAddWorkout }) => {
     const handlerSubmit = (event) => {
         event.preventDefault();
 
-        const {distance: dist} = trainingInfo;
-
         onAddWorkout({
             id: nanoid(),
             trainingInfo
-        }, dist);
+        });
 
         setInfo('');
 

@@ -6,7 +6,7 @@ import TrainingEditingWindow from './TrainingEditingWindow'
 
 const TrainingTable = () => {
 
-    const [ training, setWorkout] = useState([
+    let [ training, setWorkout] = useState([
         {
             id: nanoid(),
             trainingInfo: {
@@ -16,64 +16,22 @@ const TrainingTable = () => {
         }
     ])
 
-    const addWorkout = (workout, dist) => {
-        console.log(workout, dist)
-        console.log(training)
-
-        // let data = training.find((item) => item.trainingInfo.date === workout.trainingInfo.date);
-
-        // console.log(data)
-
-        // if(data) setWorkout((preTraining) => [...preTraining, workout])
-        
-        // {
-        //     // console.log(item.trainingInfo.date , workout.trainingInfo.date)
-        //     if(item.trainingInfo.date === workout.trainingInfo.date){
-        //         console.log('why&')
-        //         item.trainingInfo.distance + dist;
-        //         return false;
-        //     }
-
-        //     console.log('hi')
-
-
-
-        // })
+    const addWorkout = (workout) => {
 
         setWorkout((preTraining) => {
 
             let data = preTraining.find((item) => item.trainingInfo.date === workout.trainingInfo.date);
 
-            if(!data) {
-                [...preTraining, workout].sort((a, b) => 
-                    a.trainingInfo.date < b.trainingInfo.date ? 1 : -1
-                )
-                return false;
+            if(data) {
+                workout.trainingInfo.distance = workout.trainingInfo.distance + data.trainingInfo.distance;
+                preTraining = preTraining.filter(item => item.trainingInfo.date !== workout.trainingInfo.date)
             }
 
-            data.trainingInfo.date + dist;
-
+            return [...preTraining, workout].sort((a, b) => 
+                a.trainingInfo.date < b.trainingInfo.date ? 1 : -1
+            )
         })
-
-        // const index = training.findIndex((wkt) => wkt.trainingInfo.date === workout.trainingInfo.date)
-        
-        // console.log(index)
-
-        // if(index !== -1) {
-        //     // setWorkout((preTraining) => preTraining[index].trainingInfo.distance + workout.trainingInfo.distance)
-        //     setWorkout((preTraining) => {
-        //         console.log(typeof training)
-        //         console.log(typeof preTraining)
-        //     })
-        //     // preTraining[index].trainingInfo.distance + workout.trainingInfo.distance)
-
-        //     // При добавлении тренировки с датой, которая уже есть в таблице, дистанция не суммируется. Происходит перезагрузка страницы
-
-        // } else {
-        //     setWorkout((preTraining) => [...preTraining, workout].sort((a, b) => 
-        //         a.trainingInfo.date < b.trainingInfo.date ? 1 : -1
-        //     ))
-        // }       
+     
     }
 
     const deleteWorkout = (workoutId) => {
