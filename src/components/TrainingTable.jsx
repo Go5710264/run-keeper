@@ -16,18 +16,21 @@ const TrainingTable = () => {
         }
     ])
 
-    const [modalActive, setModalActive] = useState(true);
+    const [modalActive, setModalActive] = useState(false);
 
-    const addWorkout = (workout) => {
+    const addWorkout = (event, workout) => {
 
         setWorkout((preTraining) => {
 
             let data = preTraining.find((item) => item.trainingInfo.date === workout.trainingInfo.date);
 
-            if(data) {
+            if(data && event.target.classList.contains('form-submit')) {
                 workout.trainingInfo.distance = workout.trainingInfo.distance + data.trainingInfo.distance;
                 preTraining = preTraining.filter(item => item.trainingInfo.date !== workout.trainingInfo.date)
             }
+
+            if(event.target.classList.contains('modal-editing'))
+                preTraining = preTraining.filter(item => item.trainingInfo.date !== workout.trainingInfo.date)
 
             return [...preTraining, workout].sort((a, b) => 
                 a.trainingInfo.date < b.trainingInfo.date ? 1 : -1
@@ -36,12 +39,25 @@ const TrainingTable = () => {
      
     }
 
-    const deleteWorkout = (workoutId) => {
+    const deleteWorkout = (workoutId, event) => {
+        event.stopPropagation();
+
         setWorkout((preTraining) => preTraining.filter((workout) => workout.id !== workoutId))
     }
 
-    const editingWorkout = (e, id) => {
-        console.log(e, id)
+    let [trainingEditing, setTrainingEditing] = useState({
+        id: nanoid(),
+        trainingInfo: {
+            date: 1686000000000,
+            distance: 15
+        }
+    });
+
+    const editingWorkout = (id, event) => {
+        event.stopPropagation();
+        
+        setTrainingEditing(training.find(item => item.id === id))
+
         setModalActive(true)
     }
 
@@ -57,7 +73,8 @@ const TrainingTable = () => {
             <TrainingEditingWindow 
                 active={modalActive} 
                 setActive={setModalActive} 
-                // workoutId={}
+                workout={trainingEditing}
+                onAddWorkout={addWorkout}
             />
         </>
     )

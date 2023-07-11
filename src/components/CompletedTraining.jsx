@@ -22,13 +22,13 @@ const CompletedTraining = ( {workout, onRemove, onEditing} ) => {
                     src={close} 
                     alt="Удалить тренировку" 
                     className='icon' 
-                    onClick={() => onRemove(workout.id)} 
+                    onClick={(e) => onRemove(workout.id, e)} 
                 />
                 <img 
                     src={editing} 
                     alt="Редактировать тренировку" 
                     className='icon'
-                    onClick={(e)=> onEditing(e, workout.id)}    
+                    onClick={(e)=> onEditing(workout.id, e)}
                 />
             </td>
         </tr>

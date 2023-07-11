@@ -9,7 +9,7 @@ const DataEntryForm = ({ onAddWorkout }) => {
     const handlerSubmit = (event) => {
         event.preventDefault();
 
-        onAddWorkout({
+        onAddWorkout(event, {
             id: nanoid(),
             trainingInfo
         });

@@ -2,7 +2,6 @@ import PropTypes from 'prop-types';
 import CompletedTraining from './CompletedTraining';
 
 const Statistics = ( {training, onRemove, onEditing} ) => {
-    console.log(training)
     return (
         <table>
             <thead>
