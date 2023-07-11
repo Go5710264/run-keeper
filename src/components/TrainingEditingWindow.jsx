@@ -43,7 +43,7 @@ const TrainingEditingWindow = ({ active, setActive, workout, onAddWorkout }) => 
                 >
 
                 <label htmlFor="date">
-                    Дата 
+                    Дата: &#x20; 
                     <input 
                         type="date" 
                         name="date" 
@@ -53,7 +53,7 @@ const TrainingEditingWindow = ({ active, setActive, workout, onAddWorkout }) => 
                 </label>
 
                 <label htmlFor="distance">
-                    Пройдено км. 
+                    Расстояние в км.
                     <input 
                         type="text" 
                         name="distance" 

@@ -29,8 +29,6 @@
 }
 
 .form-button{
-  /* box-sizing: border-box;
-  height: 45px; */
   margin-top: 6px;
   padding: 5px 10px;
   border: 1px solid black;
@@ -96,11 +94,11 @@ td{
 
   width: 250px;
   height: 150px;
-  background-color: rgba(255, 255, 255, 0.87);
+  background-color: rgba(255, 255, 255);
   border: 1px solid black;
   border-radius: 25px;
 
-  z-index: 10;
+  /* z-index: 10; */
 }
 
 .modal-button{

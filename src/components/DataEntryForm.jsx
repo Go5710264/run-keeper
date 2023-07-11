@@ -41,7 +41,7 @@ const DataEntryForm = ({ onAddWorkout }) => {
             </div>
 
             <div className="form-data">
-                <label htmlFor="distance" className="form-header">Пройдено км.</label>
+                <label htmlFor="distance" className="form-header">Расстояние в км.</label>
                 <input className='input-distance' type="text" name="distance" onChange={distanceHandler}/>
             </div>
 

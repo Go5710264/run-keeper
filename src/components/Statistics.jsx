@@ -7,7 +7,7 @@ const Statistics = ( {training, onRemove, onEditing} ) => {
             <thead>
                 <tr>
                     <th className='table-header date'>Дата</th>
-                    <th className='table-header'>Пройдено км.</th>
+                    <th className='table-header'>Расстояние в км.</th>
                     <th className='table-header action'>Действия</th>
                 </tr>
             </thead>
